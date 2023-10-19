@@ -31,3 +31,17 @@ SAARC_COUNTRIES = [
     'Pakistan',
     'Sri Lanka',
 ]
+
+color_codes = [
+        "#FF5733",  # Red
+        "#33FF57",  # Green
+        "#FFFF33",  # Yellow
+        "#FF33FF",  # Pink
+        "#33FFFF",  # Cyan
+        "#FF9933",  # Orange
+        "#FF33CC",  # Magenta
+        "#33CCFF",  # Sky Blue
+        "#FFCC33",  # Gold
+        "#33FFCC",  # Sea 
+        "#CC33FF",  # Lavender
+    ]

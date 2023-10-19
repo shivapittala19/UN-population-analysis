@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 def saarc_country_plot():
     data_dict = {}
+     # dictinary with keys-> country , value -> it's population
     for row in population_data:
         if row['Region'] in SAARC_COUNTRIES:
             if row['Year'] in data_dict:

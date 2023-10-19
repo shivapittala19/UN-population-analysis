@@ -4,6 +4,10 @@ import matplotlib.pyplot as plt
 
 def indian_population():
     india_dict = {}
+    
+    # dictinary of indian population in each year
+    # {'year' : 'population'}
+    
     for row in population_data:
         if row['Region'] == 'India':
             india_dict[row['Year']] = row['Population']
@@ -13,5 +17,6 @@ def indian_population():
     
     plt.bar(keys,values)
     plt.show()
+    plt.xticks(rotation = 90)
     
 indian_population()
