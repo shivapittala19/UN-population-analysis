@@ -1,38 +1,49 @@
+""" main file """
 import csv
 
 def load_csv(file_name):
-    file = open(file_name,'r')
+    """ read tehe csv data"""
+    file = open(file_name,'r',encoding='latin-1')
     lines = csv.DictReader(file)
     return lines
 
 
-population_data = load_csv('population-estimates_csv.csv')
+# population_data = load_csv('population-estimates_csv.csv')
 
-    
-ASEAN_COUNTRIES = [
-    'Brunei Darussalam',
-    'Cambodia',
-    'Indonesia',
-    'Lao People\'s Democratic Republic',
-    'Malaysia',
-    'Myanmar',
-    'Philippines',
-    'Singapore',
-    'Thailand',
-    'Viet Nam'
-]
-SAARC_COUNTRIES = [
-    'Afghanistan',
-    'Bangladesh',
-    'Bhutan',
-    'India',
-    'Maldives',
-    'Nepal',
-    'Pakistan',
-    'Sri Lanka',
-]
 
-color_codes = [
+def asean_country():
+    """ keep a record of asean countries"""
+    asean_countries = [
+        'Brunei Darussalam',
+        'Cambodia',
+        'Indonesia',
+        'Lao People\'s Democratic Republic',
+        'Malaysia',
+        'Myanmar',
+        'Philippines',
+        'Singapore',
+        'Thailand',
+        'Viet Nam'
+    ]
+    return asean_countries
+
+def saarc_country():
+    """ keep a record of Saarc countries"""
+    sarrc_countries = [
+        'Afghanistan',
+        'Bangladesh',
+        'Bhutan',
+        'India',
+        'Maldives',
+        'Nepal',
+        'Pakistan',
+        'Sri Lanka',
+    ]
+    return sarrc_countries
+
+def colors():
+    """ define color used for plotting"""
+    color_codes = [
         "#FF5733",  # Red
         "#33FF57",  # Green
         "#FFFF33",  # Yellow
@@ -45,3 +56,4 @@ color_codes = [
         "#33FFCC",  # Sea 
         "#CC33FF",  # Lavender
     ]
+    return color_codes

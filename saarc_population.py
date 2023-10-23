@@ -1,18 +1,27 @@
 """ saarc country population analysis"""
 import matplotlib.pyplot as plt
-from main import population_data , SAARC_COUNTRIES
-
+import main
 
 def saarc_country_plot():
     """ saarc country population analysis"""
-    data_dict = {}
-    for row in population_data:
-        if row['Region'] in SAARC_COUNTRIES:
-            if row['Year'] in data_dict:
-                data_dict[row['Year']] += float(row['Population'])
+    population_data = main.load_csv('population-estimates_csv.csv')
+    sarrc_countries = main.saarc_country()
+    sarrc_population = {}
+    for record in population_data:
+        if record['Region'] in sarrc_countries:
+            year = record['Year']
+            population = float(record['Population'])
+            if year in sarrc_population:
+                sarrc_population[year] += population
             else:
-                data_dict[row['Year']] = float(row['Population'])
-    plt.bar(data_dict.keys(),data_dict.values())
+                sarrc_population[year] = population
+    year = sarrc_population.keys()
+    pop = sarrc_population.values()
+    plt.bar(year,pop)
+    plt.xlabel("Year")
+    plt.ylabel("Population")
+    plt.title("SAARC countries population by each year")
+    plt.xticks(rotation=90)
     plt.show()
 
 saarc_country_plot()

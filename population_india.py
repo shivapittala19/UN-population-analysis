@@ -1,18 +1,21 @@
 """ analysing indian population each year"""
 import matplotlib.pyplot as plt
-from main import population_data
-
+import main
 
 def indian_population():
     """ analysing indian population each year"""
+    population_data = main.load_csv('population-estimates_csv.csv')
     india_dict = {}
-    for row in population_data:
-        if row['Region'] == 'India':
-            india_dict[row['Year']] = row['Population']
-    keys = india_dict.keys()
-    values = india_dict.values()
-    plt.bar(keys,values)
-    plt.show()
+    for record in population_data:
+        if record['Region'] == 'India':
+            india_dict[record['Year']] = record['Population']
+    year = india_dict.keys()
+    population = india_dict.values()
+    plt.bar(year,population)
+    plt.xlabel("year")
+    plt.ylabel("population")
+    plt.title("Indian population in each year")
     plt.xticks(rotation = 90)
+    plt.show()
 
 indian_population()
