@@ -13,7 +13,7 @@ def asean_grouped_data():
         year = record['Year']
         region = record['Region']
         citizens = float(record['Population'])
-        if  '2004' <=year <= '2014' and year  and region in asean_countries :
+        if  '2004' <=year <= '2014'  and region in asean_countries :
             if year in asean_dict:
                 asean_dict[year][region] = citizens
             else:
@@ -28,17 +28,20 @@ def asean_grouped_data():
             else:
                 population[country].append(0)
     width = 0.1
-    x = range(len(years))
-    for i, country in enumerate(asean_countries):
+    number_of_years = range(len(years))
+    for index, country in enumerate(asean_countries):
         plt.bar(
-            [pos + i * width for pos in x],
+            [pos + index * width for pos in number_of_years],
             population[country],
             label=country,
             width=width,
-            color = color_codes[i]
+            color = color_codes[index]
             )
         plt.legend()
-        plt.xticks([pos + 2.5 * width for pos in x], years)
+        plt.xticks([pos + 2.5 * width for pos in number_of_years], years)
+        plt.xlabel("Country")
+        plt.ylabel("Population")
+        plt.title("Population of asean countries from 2004 to 2014")
     plt.show()
 
 asean_grouped_data()
